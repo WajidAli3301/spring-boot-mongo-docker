@@ -2,20 +2,20 @@ apiVersion: v1
 kind: ReplicationController
 metadata:
   labels:
-    name: springboot
+    name: contra
   name: spring-controller
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        name: springboot
+        name: contra-game
     spec:
       containers:
-      - image: 2496/spring-boot-image
-        name: springboot
+      - image: 2496/contra-game
+        name: contra
         ports:
-        - name: springboot
+        - name: contra
           containerPort: 8080      
 ---
 # Node Port Service
@@ -23,15 +23,15 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    name: springboot
-  name: springboot
+    name: contra
+  name: contra
 spec:
   type: NodePort
   ports:
     - port: 8080
       targetPort: 8080
   selector:
-    name: springboot
+    name: contra
 ---
 # Mongo host path rc
 apiVersion: v1
