@@ -1,6 +1,5 @@
-# Config Map
-kind: ConfigMap 
 apiVersion: v1 
+kind: ConfigMap 
 metadata:
   name: springapp-configmap
 data:
