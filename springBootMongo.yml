@@ -23,7 +23,7 @@ spec:
         app: springboot
     spec:
       containers:
-      - image: 2496/spring-boot-mongo
+      - image: harbor.example.com/cicd-demo/simple-demo-app:latest
         name: springboot
         ports:
         - containerPort: 8080  
