@@ -22,7 +22,7 @@ spec:
         app: springboot
     spec:
       containers:
-      - image: harbor.example.com/cicd-demo/simple-demo-app:latest
+      - image: harbor.example.com:80/cicd-demo/simple-demo-app:latest
         name: springboot
         ports:
         - containerPort: 9090  
