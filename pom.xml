@@ -17,7 +17,7 @@
 		<java.version>1.8</java.version>
 		<sonar.host.url>http://35.184.111.207:9000</sonar.host.url>
 		<sonar.login>admin</sonar.login>
-		<sonar.password>2fca2e8bd14bfba83a7d220352ceffa87548245a</sonar.password>
+		<sonar.password>cisco</sonar.password>
 	</properties>
 	<dependencies>
 		<dependency>
