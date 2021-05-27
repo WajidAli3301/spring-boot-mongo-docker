@@ -1,1 +1,1 @@
-[{"endPosition":{"character":13,"line":9,"position":282},"failure":"Calls to 'console.log' are not allowed.","name":"src/index.js","ruleName":"no-console","ruleSeverity":"error","startPosition":{"character":2,"line":9,"position":271}}]
+[{"endPosition":{"character":13,"line":9,"position":282},"failure":"Calls to 'console.log' are not allowed.","name":"src/main/index.ts","ruleName":"no-console","ruleSeverity":"error","startPosition":{"character":2,"line":9,"position":271}}]
