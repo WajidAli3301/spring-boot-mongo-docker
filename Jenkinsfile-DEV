@@ -25,7 +25,7 @@ pipeline {
                  sh "sudo docker image build -t 2496/app ."
                  sh "echo Pushing latest image"
                  sh "sudo docker push 2496/app"
-                 sh "echo TAG ${BUILD_NO}"
+                 sh "echo TAG ${BUILD_NUMBER}"
                  sh "sudo docker tag 2496/app 2496/app:${BUILD_NO}"
                  sh "echo pushing image with tag"
                  sh "sudo docker push 2496/app:${BUILD_NO}"
