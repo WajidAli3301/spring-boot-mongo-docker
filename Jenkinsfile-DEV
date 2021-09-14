@@ -24,7 +24,7 @@ pipeline {
                  sh "echo Removing Old images"
                  //sh "docker rmi -f ${docker images -a -q}"
                  sh "echo Start Docker build"
-                 sh "docker image build -t   ."
+                 sh "docker image build -t 2496/app ."
                  sh "echo TAG LATEST"
                  sh "docker tag app 2496/app"
                  sh "docker push 2496/app"
