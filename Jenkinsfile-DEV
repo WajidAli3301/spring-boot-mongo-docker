@@ -39,17 +39,7 @@ pipeline {
              }
            
         }
-        stage("Deploy To Kuberates Cluster"){
-            steps {
-           sh "hostname"
-        )
-        }
-        post {
-             success {
-                 echo "Successful Deploy artificat to kubernetes"
-             }
-        }
-     }
+  
      
    }
 }
