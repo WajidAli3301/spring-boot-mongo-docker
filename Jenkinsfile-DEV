@@ -26,9 +26,9 @@ pipeline {
                  sh "echo Pushing latest image"
                  sh "sudo docker push 2496/app"
                  sh "echo TAG ${BUILD_NUMBER}"
-                 sh "sudo docker tag 2496/app 2496/app:${BUILD_NO}"
+                 sh "sudo docker tag 2496/app 2496/app:${BUILD_NUMBER}"
                  sh "echo pushing image with tag"
-                 sh "sudo docker push 2496/app:${BUILD_NO}"
+                 sh "sudo docker push 2496/app:${BUILD_NUMBER}"
              }
              post {
                  success {
