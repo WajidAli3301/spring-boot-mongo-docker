@@ -21,8 +21,6 @@ pipeline {
         }       
         stage ('Artifact Build and Push') {
              steps {
-                 sh "echo Removing Old images"
-                 sh "docker rmi -f ${docker images -a -q}"
                  sh "echo Start Docker build"
                  sh "sudo docker image build -t 2496/app ."
                  sh "echo Pushing latest image"
