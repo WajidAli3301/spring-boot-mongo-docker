@@ -1,0 +1,56 @@
+pipeline {
+    agent any 
+    
+    stages {
+           stage('SCM Checkout') {
+               steps {
+               git credentialsId: 'GIT_CREDENTIALS', url: 'https://github.com/WajidAli3301/spring-boot-mongo-docker.git'
+              }
+           }
+           
+           stage ('Build') {
+              steps {
+                  sh "mvn clean verify sonar:sonar"
+           }
+           post {
+                success {
+                    echo "Successful build service"
+                }
+               
+            }   
+        }       
+        stage ('Artifact Build and Push') {
+             steps {
+                 sh "Removing Old images"
+                 sh "docker rmi -f $(docker images -a -q)"
+                 sh "echo Start Docker build"
+                 sh "docker image build -t   ."
+                 sh "echo TAG LATEST"
+                 sh "docker tag app 2496/app"
+                 sh "docker push 2496/app"
+                 sh "echo TAG ${BUILD_NO}"
+                 sh "docker tag 2496/app 2496/app:${BUILD_NO}"
+                 sh "docker push 2496/app:${BUILD_NO}"
+             }
+             post {
+                 success {
+                     echo "Successful pushed artificat to docker hub registry"
+                 }
+             }
+           
+        }
+        stage("Deploy To Kuberates Cluster"){
+            steps {
+           sh "hostname"
+        )
+        }
+        post {
+             success {
+                 echo "Successful Deploy artificat to kubernetes"
+             }
+        }
+     }
+     
+   }
+}
+ 
