@@ -21,7 +21,7 @@ pipeline {
         }       
         stage ('Artifact Build and Push') {
              steps {
-                 sh "Removing Old images"
+                 sh "echo Removing Old images"
                  sh "docker rmi -f ${docker images -a -q}"
                  sh "echo Start Docker build"
                  sh "docker image build -t   ."
