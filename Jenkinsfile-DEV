@@ -21,16 +21,15 @@ pipeline {
         }       
         stage ('Artifact Build and Push') {
              steps {
-                 sh "pwd"
                  sh "echo Removing Old images"
-                 //sh "docker rmi -f ${docker images -a -q}"
+                 sh "docker rmi -f ${docker images -a -q}"
                  sh "echo Start Docker build"
-                 sh "sudo -S docker image build -t 2496/app ."
-                 sh "echo TAG LATEST"
-                 sh "sudo docker tag app 2496/app"
+                 sh "sudo docker image build -t 2496/app ."
+                 sh "echo Pushing latest image"
                  sh "sudo docker push 2496/app"
                  sh "echo TAG ${BUILD_NO}"
                  sh "sudo docker tag 2496/app 2496/app:${BUILD_NO}"
+                 sh "echo pushing image with tag"
                  sh "sudo docker push 2496/app:${BUILD_NO}"
              }
              post {
