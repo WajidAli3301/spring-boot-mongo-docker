@@ -16,13 +16,13 @@ pipeline {
         stage ('Artifact Build and Push') {
              steps {
                  sh "echo Start Docker build"
-                 sh "sudo docker image build -t 2496/app ."
+                 sh "sudo docker image build -t 2496/springboot-app ."
                  sh "echo Pushing latest image"
-                 sh "sudo docker push 2496/app"
+                 sh "sudo docker push 2496/springboot-app"
                  sh "echo TAG ${BUILD_NUMBER}"
-                 sh "sudo docker tag 2496/app 2496/app:${BUILD_NUMBER}"
+                 sh "sudo docker tag 2496/springboot-app 2496/springboot-app:${BUILD_NUMBER}"
                  sh "echo pushing image with tag"
-                 sh "sudo docker push 2496/app:${BUILD_NUMBER}"
+                 sh "sudo docker push 2496/springboot-app:${BUILD_NUMBER}"
              }
              post {
                  success {
@@ -31,6 +31,16 @@ pipeline {
              }
            
         }
+          stage("Deploy To Kuberates Cluster"){
+            steps {
+            sh "sudo kubectl --kubeconfig=/home/jenkins apply -f "
+        }
+        post {
+             success {
+                 echo "Successful Deploy artificat to kubernetes"
+             }
+        }
+     }
   
      
    }
