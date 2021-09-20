@@ -22,10 +22,10 @@ spec:
         app: springboot
     spec:
       containers:
-      - image: harbor.example.com:80/cicd-demo/simple-demo-app:latest
+      - image: wajid2496/springboot-app:latest
         name: springboot
         ports:
-        - containerPort: 8080  
+        - containerPort: 8090  
         env:
         - name: MONGO_DB_HOSTNAME
           value: mongo
@@ -48,8 +48,8 @@ metadata:
 spec:
   type: NodePort
   ports:
-    - port: 8080
-      targetPort: 8080
+    - port: 8090
+      targetPort: 8090
   selector:
     app: springboot
 ---
