@@ -33,7 +33,7 @@ pipeline {
         }
           stage("Deploy To Kuberates Cluster"){
             steps {
-            sh "sudo kubectl --kubeconfig=/home/jenkins apply -f "
+            sh "sudo kubectl --kubeconfig=/home/jenkins apply/DEV-Kubeconfig.yaml -f springBootMongo.yml"
         }
         post {
              success {
