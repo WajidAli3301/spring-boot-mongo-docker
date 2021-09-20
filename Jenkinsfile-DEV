@@ -1,13 +1,7 @@
 pipeline {
     agent any 
     
-    stages {
-           stage('SCM Checkout') {
-               steps {
-               git credentialsId: 'GIT_CREDENTIALS', url: 'https://github.com/WajidAli3301/spring-boot-mongo-docker.git'
-              }
-           }
-           
+    stages {           
            stage ('Build') {
               steps {
                   sh "mvn clean verify sonar:sonar"
